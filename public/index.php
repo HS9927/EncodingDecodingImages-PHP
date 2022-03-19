@@ -1,7 +1,8 @@
 <?php
 
 /// TODO: Encrypt File/Image
-///
+echo "<h3>Eecrypt</h3>";
+
 /// TODO: Get Content of File
 $img = file_get_contents("../assets/images/js.jpg");
 
@@ -33,14 +34,22 @@ echo "<h5>Data Encode with Original Filename</h5>" . $data_encode_with_original_
 echo "<hr><br>-------------<br><hr>";
 
 /// TODO: Decrypt Images
+echo "<h3>Decrypt</h3>";
+
 /// TODO: Convert Encode to Decode
 $data_decode = base64_decode($data_encode);
 
+/// TODO: Generate New Name
 /// TODO: Put Content to File
 $img_decode = file_put_contents("../assets/images/temp/testing.png", $data_decode);
 
+echo "<h5>Show Images with New Name</h5>";
+echo "<img src='../assets/images/temp/testing.png' width='100px'/>";
+
+/// TODO: Get Original File Name and Put Content to it
 /// TODO: Get Origin File Name from Decoding
 $split_data_encode = explode("@@", $data_encode_with_original_filename);
+
 /// TODO: Get Original File Name and Data Encode
 $filename = $split_data_encode[0];
 $data_encode_with_original_filename = $split_data_encode[1];
@@ -52,7 +61,5 @@ $data_decode_with_original_filename = base64_decode($data_encode_with_original_f
 $img_decode_with_original_filename = file_put_contents("../assets/images/img-encrypted/" . $filename, $data_decode_with_original_filename);
 
 
-
-//echo $img;s
-
-//echo "<img src='../assets/images/laravel.png' />";
+echo "<h5>Show Images with Original Name</h5>";
+echo "<img src='../assets/images/img-encrypted/{$filename}' width='100px'/>";
